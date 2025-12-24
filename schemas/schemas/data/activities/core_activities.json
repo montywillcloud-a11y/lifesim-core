@@ -1,0 +1,9 @@
+[
+  { "id":"SLEEP_8H","name":"Sleep (8h)","category":"UNIVERSAL","tags":["REST"],"durationMinutes":480,"requirements":{"minNeeds":{"health":5}},"effects":{"needsDelta":{"energy":60,"hunger":-10,"happiness":5},"moneyDelta":0,"fameDelta":0,"reputationDelta":0,"skillXp":{},"careerXp":0}},
+
+  { "id":"EAT_MEAL","name":"Eat Meal","category":"FUN","tags":["FOOD"],"durationMinutes":30,"requirements":{ "minMoney":10 },"effects":{"needsDelta":{"hunger":25,"happiness":5},"moneyDelta":-10,"fameDelta":0,"reputationDelta":0,"skillXp":{},"careerXp":0}},
+
+  { "id":"EXERCISE","name":"Exercise","category":"HEALTH","tags":["FITNESS"],"durationMinutes":120,"requirements":{"minNeeds":{"energy":10,"hunger":10}},"effects":{"needsDelta":{"health":10,"energy":-10,"hunger":-15,"happiness":3},"moneyDelta":0,"fameDelta":0,"reputationDelta":0,"skillXp":{"fitness":15},"careerXp":0}},
+
+  { "id":"PRACTICE_MUSIC","name":"Practice Music","category":"FUN","tags":["MUSIC"],"durationMinutes":180,"requirements":{"minNeeds":{"energy":15}},"effects":{"needsDelta":{"happiness":6,"energy":-12,"social":-3},"moneyDelta":0,"fameDelta":0,"reputationDelta":0,"skillXp":{"music":20},"careerXp":0}}
+]
