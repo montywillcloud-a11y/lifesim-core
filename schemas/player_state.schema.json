@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lifesim://schemas/player_state.schema.json",
+  "title": "PlayerState",
+  "type": "object",
+  "additionalProperties": false,
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "playerId",
+    "createdAtIso",
+    "name",
+    "ageYears",
+    "time",
+    "traits",
+    "needs",
+    "money",
+    "fame",
+    "reputation",
+    "skills",
+    "career",
+    "inventory",
+    "home"
+  ],
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "playerId": { "type": "string", "minLength": 6 },
+    "createdAtIso": { "type": "string", "format": "date-time" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 24 },
+    "ageYears": { "type": "integer", "minimum": 16, "maximum": 100 },
+    "time": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dayIndex", "minuteOfDay"],
+      "properties": {
+        "dayIndex": { "type": "integer", "minimum": 0 },
+        "minuteOfDay": { "type": "integer", "minimum": 0, "maximum": 1439 }
+      }
+    },
+    "traits": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 4,
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "needs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hunger", "energy", "happiness", "health", "social"],
+      "properties": {
+        "hunger": { "type": "number", "minimum": 0, "maximum": 100 },
+        "energy": { "type": "number", "minimum": 0, "maximum": 100 },
+        "happiness": { "type": "number", "minimum": 0, "maximum": 100 },
+        "health": { "type": "number", "minimum": 0, "maximum": 100 },
+        "social": { "type": "number", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "money": { "type": "integer", "minimum": 0 },
+    "fame": { "type": "integer", "minimum": 0 },
+    "reputation": { "type": "integer", "minimum": -100, "maximum": 100 },
+    "skills": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["level", "xp"],
+        "properties": {
+          "level": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "xp": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "career": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["careerId", "tier", "level", "xp", "milestones"],
+      "properties": {
+        "careerId": { "type": ["string", "null"] },
+        "tier": { "type": "string", "enum": ["NONE","UNKNOWN","LOCAL","NATIONAL","GLOBAL","LEGENDARY"] },
+        "level": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "xp": { "type": "integer", "minimum": 0 },
+        "milestones": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "inventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["items"],
+      "properties": {
+        "items": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } }
+      }
+    },
+    "home": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["homeTier","maxNeeds"],
+      "properties": {
+        "homeTier": { "type": "integer", "minimum": 0, "maximum": 10 },
+        "maxNeeds": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["hunger","energy","happiness","health","social"],
+          "properties": {
+            "hunger": { "type": "number", "minimum": 50, "maximum": 200 },
+            "energy": { "type": "number", "minimum": 50, "maximum": 200 },
+            "happiness": { "type": "number", "minimum": 50, "maximum": 200 },
+            "health": { "type": "number", "minimum": 50, "maximum": 200 },
+            "social": { "type": "number", "minimum": 50, "maximum": 200 }
+          }
+        }
+      }
+    }
+  }
+}
