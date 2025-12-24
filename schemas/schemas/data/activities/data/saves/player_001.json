@@ -1,0 +1,17 @@
+{
+  "version":1,
+  "playerId":"PLAYER_001",
+  "createdAtIso":"2025-12-24T12:00:00Z",
+  "name":"Montana",
+  "ageYears":18,
+  "time":{"dayIndex":0,"minuteOfDay":480},
+  "traits":["CHARISMATIC","DISCIPLINED"],
+  "needs":{"hunger":78,"energy":65,"happiness":60,"health":70,"social":55},
+  "money":150,
+  "fame":0,
+  "reputation":0,
+  "skills":{"fitness":{"level":1,"xp":10},"music":{"level":0,"xp":0}},
+  "career":{"careerId":null,"tier":"NONE","level":0,"xp":0,"milestones":[]},
+  "inventory":{"items":{"FOOD_MEAL":2,"ENERGY_DRINK":1}},
+  "home":{"homeTier":0,"maxNeeds":{"hunger":100,"energy":100,"happiness":100,"health":100,"social":100}}
+}
